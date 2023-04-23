@@ -21,7 +21,7 @@ resource "aws_instance" "app_server" {
                     #!/bin/bash
                     cd /home/ubuntu
                     echo "<h1>Ola mundo</h1> index.html"
-                    https://github.com/Nicolas734/alura-iac.git
+                    nohup busybox httpd -f -p 8080 &
                    EOF
     tags = {
         Name = "Teste AWS"
