@@ -17,7 +17,13 @@ resource "aws_instance" "app_server" {
     ami           = "ami-0fcf52bcf5db7b003"
     instance_type = "t2.micro"
     key_name = "iac-alura"
+    user_data = <<-EOF
+                    #!/bin/bash
+                    cd /home/ubuntu
+                    echo "<h1>Ola mundo</h1> index.html"
+                    https://github.com/Nicolas734/alura-iac.git
+                   EOF
     tags = {
-        Name = "Primeiro teste"
+        Name = "Teste AWS"
     }
 }
