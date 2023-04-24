@@ -2,7 +2,20 @@
   tasks:
   - name: criando arquivo
     copy: 
-      dest: /home/ubuntu
-      content: <h1>sua prima</h1>
+      dest: /home/ubuntu/index.html
+      content: <h1>Sua prima</h1>
   - name: criando servidor
     shell: "nohup busybox httpd -f -p 8080 &"
+  - name: Instalando o python3, virtualenv
+    apt:
+      pkg:
+      - python3
+      - virtualenv
+      update_cache: yes
+    become: yes
+  - name: Instalando dependencias com pip (Django e Django Rest)
+    pip:
+      virtualenv: /home/ubuntu/tcc/venv
+      name:
+        - django
+        - djangorestframework
