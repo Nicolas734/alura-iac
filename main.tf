@@ -27,3 +27,4 @@ resource "aws_instance" "app_server" {
         Name = "Terraform Ansible Python"
     }
 }
+ 
